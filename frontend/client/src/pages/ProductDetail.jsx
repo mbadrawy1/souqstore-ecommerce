@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Heart, Star, Minus, Plus, Truck, Shield, RotateCcw, Share2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useCart } from '../context/CartContext';
@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { t, lang, isRTL } = useLanguage();
   const { addToCart } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -43,7 +44,7 @@ export default function ProductDetail() {
 
   const handleBuyNow = () => {
     addToCart(product, quantity);
-    window.location.href = '/checkout';
+    navigate('/checkout');
   };
 
   return (
