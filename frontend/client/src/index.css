@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ==========================================
+   سوق ستور - Design System
+   Premium E-commerce Design Tokens
+   ========================================== */
+
+@theme {
+  /* Colors - Premium Dark + Violet Accent */
+  --color-primary: #6C63FF;
+  --color-primary-light: #8B83FF;
+  --color-primary-dark: #5147E5;
+  --color-secondary: #FF6B6B;
+  --color-secondary-light: #FF8E8E;
+  --color-accent: #FFD700;
+  --color-accent-light: #FFE44D;
+  --color-success: #00D68F;
+  --color-warning: #FFAA00;
+  --color-danger: #FF3D71;
+  --color-info: #0095FF;
+
+  /* Dark Theme */
+  --color-dark-bg: #0A0A1A;
+  --color-dark-surface: #12122A;
+  --color-dark-card: #1A1A3E;
+  --color-dark-card-hover: #222255;
+  --color-dark-border: #2A2A5A;
+  --color-dark-text: #E8E8F0;
+  --color-dark-text-secondary: #9B9BB8;
+  --color-dark-text-muted: #6B6B8A;
+
+  /* Gradients as base colors */
+  --color-gradient-start: #6C63FF;
+  --color-gradient-end: #FF6B6B;
+}
+
+/* ==========================================
+   Base Styles
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cairo', 'Inter', sans-serif;
+  background-color: #0A0A1A;
+  color: #E8E8F0;
+  line-height: 1.7;
+  overflow-x: hidden;
+  direction: rtl;
+}
+
+[dir="ltr"] body,
+body.ltr {
+  direction: ltr;
+  font-family: 'Inter', 'Cairo', sans-serif;
+}
+
+/* ==========================================
+   Scrollbar
+   ========================================== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0A0A1A; }
+::-webkit-scrollbar-thumb { background: #6C63FF; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #8B83FF; }
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+.glass {
+  background: rgba(26, 26, 62, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(108, 99, 255, 0.15);
+}
+
+.glass-strong {
+  background: rgba(26, 26, 62, 0.85);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6C63FF, #FF6B6B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #6C63FF, #FF6B6B);
+}
+
+.gradient-bg-subtle {
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(255, 107, 107, 0.1));
+}
+
+/* ==========================================
+   Animations
+   ========================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(108, 99, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(108, 99, 255, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+.animate-fade-in { animation: fade-in 0.4s ease-out forwards; }
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(108, 99, 255, 0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ==========================================
+   Card Styles
+   ========================================== */
+.card {
+  background: #1A1A3E;
+  border: 1px solid #2A2A5A;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: rgba(108, 99, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(108, 99, 255, 0.1);
+}
+
+/* ==========================================
+   Button Styles
+   ========================================== */
+.btn-primary {
+  background: linear-gradient(135deg, #6C63FF, #5147E5);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #8B83FF, #6C63FF);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(108, 99, 255, 0.1);
+  color: #8B83FF;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.btn-secondary:hover {
+  background: rgba(108, 99, 255, 0.2);
+  border-color: #6C63FF;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #FF3D71, #FF6B6B);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ==========================================
+   Input Styles
+   ========================================== */
+.input {
+  background: rgba(26, 26, 62, 0.8);
+  border: 1px solid #2A2A5A;
+  color: #E8E8F0;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6C63FF;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+.input::placeholder {
+  color: #6B6B8A;
+}
+
+/* ==========================================
+   Badge Styles
+   ========================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-sale {
+  background: linear-gradient(135deg, #FF3D71, #FF6B6B);
+  color: white;
+}
+
+.badge-new {
+  background: linear-gradient(135deg, #00D68F, #00B887);
+  color: white;
+}
+
+.badge-hot {
+  background: linear-gradient(135deg, #FFAA00, #FF8800);
+  color: #1A1A3E;
+}
+
+/* ==========================================
+   Star Rating
+   ========================================== */
+.stars {
+  display: flex;
+  gap: 2px;
+  direction: ltr;
+}
+
+.star {
+  color: #FFD700;
+  font-size: 1rem;
+}
+
+.star-empty {
+  color: #2A2A5A;
+}
+
+/* ==========================================
+   Section Styles
+   ========================================== */
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: #9B9BB8;
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 768px) {
+  .section-title { font-size: 1.5rem; }
+  body { font-size: 14px; }
+}
+
+/* ==========================================
+   Page Transitions
+   ========================================== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease;
+}
